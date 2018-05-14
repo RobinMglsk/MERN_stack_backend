@@ -11,7 +11,9 @@ const posts = require('./routes/api/posts');
 const app = express();
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 
 // DB Config
@@ -20,7 +22,7 @@ console.log(db)
 // Connect to mongoDB
 mongoose
     .connect(db)
-    .then(()=>console.log('MongoDB Connected'))
+    .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
 // Passport middleware
@@ -30,9 +32,9 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Use routes
-app.use('/api/users',users);
-app.use('/api/profile',profile);
-app.use('/api/posts',posts);
+app.use('/api/users', users);
+app.use('/api/profile', profile);
+app.use('/api/posts', posts);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`server running on port ${port}`));
