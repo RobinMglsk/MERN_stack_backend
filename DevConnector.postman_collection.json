@@ -66,6 +66,9 @@
 				{
 					"name": "Login",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -284,7 +287,7 @@
 					},
 					"response": [
 						{
-							"id": "c7c1d3b6-33cf-48cc-b14b-e6f96ac3d9ad",
+							"id": "161119fb-b263-48b4-b611-aab01b355386",
 							"name": "Create or update profile of logged in user",
 							"originalRequest": {
 								"method": "POST",
@@ -1153,7 +1156,153 @@
 				{
 					"name": "Comments",
 					"description": "",
-					"item": [],
+					"item": [
+						{
+							"name": "Add comment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Body matches string\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "text",
+											"value": "This is a comment",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Jonny Doe",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "avatar",
+											"value": "XXX",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/posts/comment/5b02b9d7cfeff5702c70ef9e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"comment",
+										"5b02b9d7cfeff5702c70ef9e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete comment",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Body matches string\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{url}}/api/posts/comment/5b02b9d7cfeff5702c70ef9e/5b02c806714df61c98d83c0f",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"comment",
+										"5b02b9d7cfeff5702c70ef9e",
+										"5b02c806714df61c98d83c0f"
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1444,7 +1593,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZmRlYWE3YTk0YmI2MmMzMDJmOWRjZiIsIm5hbWUiOiJSb2JpbiBNaWdhbHNraSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvODc0ZDU0OTEyYjNmMzI5NTFhNTQzYjRlMjUzNjRjODI_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTI2OTA1MDY3LCJleHAiOjE1MjY5MDg2Njd9.y2p_D6QZHsZH3yMx7KQPZNQGNSrnt_nCPSsqXSMltrg",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZmRlYWE3YTk0YmI2MmMzMDJmOWRjZiIsIm5hbWUiOiJSb2JpbiBNaWdhbHNraSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvODc0ZDU0OTEyYjNmMzI5NTFhNTQzYjRlMjUzNjRjODI_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTI2OTA4OTE5LCJleHAiOjE1MjY5MTI1MTl9.NVHZOkedqvQB7e0W2m_8eSUNjv1_JLBAedECB_hVmDA",
 				"type": "string"
 			}
 		]
