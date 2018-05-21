@@ -1,0 +1,1474 @@
+{
+	"info": {
+		"_postman_id": "1ada8ec6-0ce6-4101-8d58-3ff25dbf9398",
+		"name": "DevConnector",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Robin Migalski",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "{{password}}",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						},
+						"description": "Login"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						},
+						"description": "Login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"description": null,
+			"item": [
+				{
+					"name": "Get profile of logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "194205e0-17f7-4fd2-97fb-ce00dcb665f3",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"succes\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "Joliencmns",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create or update profile of logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "Joliencmns",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Developer",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "HTML,CSS,PHP,Javascript,Laravel,Express,Git",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Egberghs Printing Service",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "http://jolien.mglsk.be",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "http://www.twitter.com/joliencmns",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c7c1d3b6-33cf-48cc-b14b-e6f96ac3d9ad",
+							"name": "Create or update profile of logged in user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "handle",
+											"value": "Robnmglsk",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "Developer",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "skills",
+											"value": "HTML,CSS,PHP,Javascript,Laravel,Express,Git",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "company",
+											"value": "Egberghs Printing Service",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "website",
+											"value": "http://robin.mglsk.be",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "twitter",
+											"value": "http://www.twitter.com/robinmglsk",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:5000/api/profile",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "381",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 15 May 2018 20:52:38 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17d-vMuVFI52iRdtk8/HgIrBYhjt/7E\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "{\"social\":{\"twitter\":\"http://www.twitter.com/robinmglsk\"},\"skills\":[\"HTML\",\"CSS\",\"PHP\",\"Javascript\",\"Laravel\",\"Express\",\"Git\"],\"_id\":\"5afb4896252add4c0882a873\",\"user\":\"5af81fbfb2534250a8580187\",\"handle\":\"Robnmglsk\",\"company\":\"Egberghs Printing Service\",\"website\":\"http://robin.mglsk.be\",\"status\":\"Developer\",\"experience\":[],\"education\":[],\"date\":\"2018-05-15T20:52:38.283Z\",\"__v\":0}"
+						}
+					]
+				},
+				{
+					"name": "Get profile by handler",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1dc1cb3-3351-483a-96fd-e2f42d8563fe",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "Joliencmns",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/handle/Joliencmns",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"handle",
+								"Joliencmns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get profile by user id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88ea5600-0a84-49c4-8a69-4e0700046782",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "Joliencmns",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get profile all profiles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88ea5600-0a84-49c4-8a69-4e0700046782",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "Joliencmns",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add experience to profile of logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "Robnmglsk3",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Developer",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "HTML,CSS,PHP,Javascript,Laravel,Express,Git",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Egberghs Printing Service",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "http://robin.mglsk.be",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "http://www.twitter.com/robinmglsk",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/experience",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add education to profile of logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Full-stack developer",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Egberghs",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "from",
+									"value": "11/02/2011",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/education",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove experience from profile of logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/profile/experience/5afdef4ab8f94951283f15eb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"experience",
+								"5afdef4ab8f94951283f15eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove education from profile of logged in user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/profile/experience/5afdef4ab8f94951283f15eb",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"experience",
+								"5afdef4ab8f94951283f15eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/profile/education/5afdf2d7ed321006980041d7",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"education",
+								"5afdf2d7ed321006980041d7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"description": null,
+			"item": [
+				{
+					"name": "Likes",
+					"description": null,
+					"item": [
+						{
+							"name": "Like post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Body matches string\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "text",
+											"value": "XXXX sqdsqd sdqqdsf uredoid jqoijds iojsqd oijsqdoijsqd oiaz dioj sqjd ioqjsd iza sdfddd",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/posts/like/5b02b9d7cfeff5702c70ef9e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"like",
+										"5b02b9d7cfeff5702c70ef9e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unlike post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Response is ok\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Body matches string\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+											"});"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"disabled": true
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "text",
+											"value": "XXXX sqdsqd sdqqdsf uredoid jqoijds iojsqd oijsqdoijsqd oiaz dioj sqjd ioqjsd iza sdfddd",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/posts/unlike/5b02b9d7cfeff5702c70ef9e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"posts",
+										"unlike",
+										"5b02b9d7cfeff5702c70ef9e"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Comments",
+					"description": "",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "sdfdsf ds fds fds fds sdf dsfdsf dsfds",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "XXXX sqdsqd sdqqdsf uredoid jqoijds iojsqd oijsqdoijsqd oiaz dioj sqjd ioqjsd iza sdfddd",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "XXXX sqdsqd sdqqdsf uredoid jqoijds iojsqd oijsqdoijsqd oiaz dioj sqjd ioqjsd iza sdfddd",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/posts/5b02b984c5352a4f6c96840c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5b02b984c5352a4f6c96840c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4dbf0e84-7e52-4a3f-a3a1-c9c975f04023",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"avatar\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5cdff754-5878-4427-ba9c-d65a21d66e5f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "XXXX sqdsqd sdqqdsf uredoid jqoijds iojsqd oijsqdoijsqd oiaz dioj sqjd ioqjsd iza sdfddd",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/posts/5b02b9e7cfeff5702c70ef9f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5b02b9e7cfeff5702c70ef9f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZmRlYWE3YTk0YmI2MmMzMDJmOWRjZiIsIm5hbWUiOiJSb2JpbiBNaWdhbHNraSIsImF2YXRhciI6Ii8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvODc0ZDU0OTEyYjNmMzI5NTFhNTQzYjRlMjUzNjRjODI_cz0yMDAmcj1wZyZkPW1tIiwiaWF0IjoxNTI2OTA1MDY3LCJleHAiOjE1MjY5MDg2Njd9.y2p_D6QZHsZH3yMx7KQPZNQGNSrnt_nCPSsqXSMltrg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "31cc7fff-4df9-438c-b4f0-b7b0227036d0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "14e3de0b-bfef-4545-b82e-60e759c14726",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
